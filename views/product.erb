@@ -1,0 +1,18 @@
+<h2>Product page </h2>
+
+
+<p>
+<%= @product['id'] %></br>
+<%= @product['title'] %></br>	
+<img src="<%= @product['path_to_image'] %>" alt="<%= @product['title'] %>" class="img-thumbnail"></br>
+Descriprion: <%= @product['description'] %></br>
+
+Price: <%= @product['price'] %> RUB</br>
+Size: <%= @product['size'] %> sm</br>
+Quantity: <%= @product['quantity'] %></br>
+<br>
+	<button type="button" class="btn btn-success" onclick="add_to_cart(<%= @product.id %>)">Add to Cart</button>
+
+<br>
+<br>				
+</p>

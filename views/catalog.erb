@@ -1,0 +1,33 @@
+<h2>About Page</h2>
+</br>
+<button type="button" class="btn btn-primary" onclick="something()">Click Me!</button>
+
+<h2>Catalog </h2>
+
+<div class="container">
+	<div class="row">
+    	
+      
+    		<% @products.each do |product| %>
+				<div class="col">
+				<p>
+				<a href="/product/<%= product.id %>">Pizza <%= product.title %></a><br>
+				<img src="<%= product.path_to_image %>" alt="<%= product.title %>" class="img-thumbnail"><br>
+				<%= product.price %> RUB<br>
+				</p>
+				<br>
+				<button type="button" class="btn btn-primary" onclick="add_to_cart(<%= product.id %>)">Add to Cart</button>
+				<br>
+				<br>
+				</div>
+			<% end %>
+		
+   </div>
+</div>
+<script type="text/javascript">
+$(function() {
+
+	update_orders_input();
+	update_orders_button();
+});
+</script>   	   	
