@@ -25,7 +25,7 @@ get '/catalog' do
 end
 
 post '/cart' do
-	erb 'Hi'
+	erb :cart
 end
 
 get '/product/:id' do

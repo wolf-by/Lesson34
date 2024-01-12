@@ -1,0 +1,23 @@
+<h2>Cart</h2>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @products.each do |product| %>
+    <tr>
+      <td><a href="/product/<%= product.id %>">Pizza <%= product.title %></a><br></td>
+      <td><%= product.price %> RUB<br></td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+</form>
