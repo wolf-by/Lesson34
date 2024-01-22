@@ -4,20 +4,51 @@
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col">Price</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Full Price</th>
     </tr>
   </thead>
   <tbody>
-    <% @products.each do |product| %>
+  	<% total_price = 0 %>
+  	<% total_quantity = 0 %>
+    <% @items.each do |item| %>
     <tr>
-      <td><a href="/product/<%= product.id %>">Pizza <%= product.title %></a><br></td>
-      <td><%= product.price %> RUB<br></td>
-      <td>Otto</td>
-      <td>@mdo</td>
+      <td><a href="/product/<%= item[0].id %>">Pizza <%= item[0].title %></a><br></td>
+      <td><%= item[0].price %> RUB<br></td>
+      <td><%= item[1] %></td>
+      <td><%= item[0].price * item[1].to_f %> RUB</td>
     </tr>
+    	<% total_price += item[0].price * item[1].to_f %>
+    	<% total_quantity += item[1].to_f %>
     <% end %>
+    <tr>
+    	<td> </td>
+    	<td> </td>
+    	<td><%= total_quantity %></td>
+    	<td><%= total_price %> RUB</td>
+    </tr>
   </tbody>
 </table>
+</form>
+
+<form action="/place_order" method="POST">
+
+  <input name="order[orders_input]" type="hidden" value="<%= @orders_input %>" />	
+
+  <div class="mb-3">
+    <label>Name</label>
+    <input name="client[name]" type="text" class="form-control" placeholder="Enter Name" >
+  </div>
+  <div class="mb-3">
+    <label>Phone</label>
+    <input name="client[phone]" type="text" class="form-control" placeholder="Enter Phone" >
+  </div>
+  <div class="mb-3">
+    <label>Address</label>
+    <input name="client[address]" type="text" class="form-control" placeholder="Delivery address" >
+  </div>
+
+   </br> 
+  <button type="submit" class="btn btn-success">Order</button>
 </form>
