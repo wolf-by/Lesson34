@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_10_124910) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_23_120210) do
+  create_table "orders", force: :cascade do |t|
+    t.integer "number"
+    t.text "title"
+    t.decimal "price"
+    t.integer "quantity"
+    t.decimal "total_price"
+    t.integer "total_quantity"
+    t.text "name_client"
+    t.text "phone_client"
+    t.text "address_client"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "title"
     t.text "description"

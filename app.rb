@@ -10,6 +10,14 @@ class Product < ActiveRecord::Base
 
 end
 
+class Order < ActiveRecord::Base
+
+	validates :name_client, presence: true, length: {minimum: 3}
+	validates :phone_client, presence: true
+	validates :address_client, presence: true
+
+end	
+
 before do
 	@products = Product.all
 
@@ -31,6 +39,7 @@ post '/cart' do
 	@items.each do |item|
 		# id, cnt
 		item[0] = Product.find(item[0])
+
 	end
 
 	erb :cart
@@ -99,4 +108,39 @@ post '/product/:id' do
  	
 	redirect to ('/product/' + id)
  
+end
+
+post '/place_order' do
+	@name_client = params[:name_client]
+	@phone_client = params[:phone_client]
+	@address_client = params[:address_client]
+
+	@total_item = params[:title]
+	@total_price = params[:total_price]
+	@total_quantity = params[:total_quantity]
+
+
+	hh2 = { :name_client => 'Введите Имя',
+			:phone_client => 'Введите телефон',
+			:address_client => 'Введите адрес'
+	}
+
+	hh2.each do |key, value|
+		if params[key] == ''
+			@error = hh2[key]
+			return erb :contacts
+		end	
+	end	
+	
+	Order.create :name_client => @name_client, :phone_client => @phone_client, 
+	:address_client => @address_client, :title => @total_item, :total_price => @total_price, 
+	:total_quantity => @total_quantity
+
+	f = File.open './public/contacts.txt', 'a'
+	f.write "Имя клиента: #{@name_client}\n, Телефон: #{@phone_client}\n, Адрес: #{@address_client}\n "
+	f.close
+
+
+
+	erb "Ваш заказ принят! Спасибо!" 
 end
