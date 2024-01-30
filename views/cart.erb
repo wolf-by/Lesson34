@@ -28,15 +28,16 @@
       
     <% end %>
     <tr>
-      
+
     	<td><% @items.each do |item| %>
        <% "#{item[0].title} " + "#{item[1]}," %>
 
-       <% @total_item += "#{item[0].title} " + "#{item[1]}, " %>
+       <% @total_item += "#{item[0].title} " + "- #{item[1]} cnt, " %>
 
        <% end %>
-      <%= @total_item %>  
+      <% @total_item %>  
       </td>
+      <td></td>
     	<td><%= @total_quantity %></td>
     	<td><%= @total_price %> RUB</td>
     </tr>

@@ -20,7 +20,7 @@ end
 
 before do
 	@products = Product.all
-
+	@orders = Order.all
 end
 
 
@@ -143,4 +143,10 @@ post '/place_order' do
 
 
 	erb "Ваш заказ принят! Спасибо!" 
+end
+
+get '/order' do
+
+	@orders = Order.order(:id)
+	erb :order
 end
