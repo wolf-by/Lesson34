@@ -142,7 +142,7 @@ post '/place_order' do
 
 
 
-	erb "Ваш заказ принят! Спасибо!" 
+	erb :place_order
 end
 
 get '/order' do
