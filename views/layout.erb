@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Sinatra + Twitter Bootstrap</title>
+		<title>PizzaShop</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!-- Bootstrap -->
 		<link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -30,22 +30,20 @@
 			      <span class="icon-bar"></span>
 			      <span class="icon-bar"></span>
 			    </button>
-			    <a class="navbar-brand" href="/">My Website</a>
+			    <a class="navbar-brand" href="/">PizzaShop</a>
 			  </div>
 			  <div class="navbar-collapse collapse">
 			    <ul class="nav navbar-nav">
 			      <li><a href="/catalog">Catalog</a></li>
-			      
 			    </ul>
 			    <ul class="nav navbar-nav">
 			      <li><a href="/order">Order list</a></li>
-			      
 			    </ul>
 			    <ul class="nav navbar-nav navbar-right">
 			    	<li>
 			    	<form action="/cart" method="POST">
-			    	<input type="text" id="orders_input" name="orders" >
-			    	<input type="submit" id="orders_button" class="btn btn-primary btn-large" value="Cart (...) " />
+			    	<input type="hidden" id="orders_input" name="orders" >
+			    	<input type="submit" id="orders_button" value="Cart (...) " />
 			    	</form>
 			    	</li>
 			    </ul>
