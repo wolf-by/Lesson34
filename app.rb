@@ -145,7 +145,7 @@ post '/place_order' do
 	:total_quantity => @total_quantity
 
 	f = File.open './public/contacts.txt', 'a'
-	f.write "Имя клиента: #{@name_client}\n, Телефон: #{@phone_client}\n, Адрес: #{@address_client}\n "
+	f.write "Имя клиента: #{@name_client}\n, Телефон: #{@phone_client}\n, Адрес: #{@address_client}\n ------\n"
 	f.close
 
 
