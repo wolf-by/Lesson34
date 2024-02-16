@@ -158,3 +158,10 @@ get '/order' do
 	@orders = Order.order(:id)
 	erb :order
 end
+
+get '/admin' do
+
+	#@orders = Order.order(:id)
+	@orders = Order.order('created_at DESC')
+	erb :admin
+end

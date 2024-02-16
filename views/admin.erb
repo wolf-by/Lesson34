@@ -1,0 +1,45 @@
+<% @orders.each do |order| %>
+  <p>
+    <% order.title %>
+  </p>
+<% end %>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Pizza</th>
+      
+      <th scope="col">Total Quantity</th>
+      <th scope="col">Full Price</th>
+      <th scope="col">Name</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Address Deliveri</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @orders.each do |order| %>
+    <tr>
+      
+      <td><%= order.id %></td>
+      <td><%= order.title %></td>
+      
+      <td><%= order.total_quantity %></td>
+      <td><%= order.total_price %></td>
+      <td><%= order.name_client %></td>
+      <td><%= order.phone_client %></td>
+      <td><%= order.address_client %></td>
+    </tr>
+    <% end %>
+
+    <tr>
+    	<td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    	<td></td>
+    	<td></td>
+    </tr>
+  </tbody>
+</table>
+</form>
